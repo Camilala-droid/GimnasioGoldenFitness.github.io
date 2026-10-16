@@ -1,0 +1,61 @@
+GUIA DE ESTUDIO - GOLDEN FITNESS V3
+===================================
+
+1. ARQUITECTURA MVC
+Vista: muestra formularios y tablas.
+Controlador: recibe la acción, valida y coordina.
+Modelo: consulta o modifica MySQL.
+
+2. BASE DE DATOS
+17 tablas organizadas en 5 grupos:
+
+Seguridad:
+- usuarios
+
+Clientes y cobros:
+- clientes
+- planes
+- membresias
+- pagos
+
+Clases:
+- especialidades
+- entrenadores
+- categorias_clase
+- salas
+- clases
+- horarios
+- reservas
+- asistencias
+
+Seguimiento:
+- evaluaciones_fisicas
+- ejercicios
+- rutinas
+- rutina_ejercicios
+
+3. FLUJO PRINCIPAL
+Cliente -> Membresía -> Pago -> Reserva -> Clase -> Asistencia
+
+4. FLUJO DE SEGUIMIENTO
+Cliente -> Evaluación física -> Rutina -> Ejercicios
+
+5. IDEA CLAVE DE CLASES
+Una clase es la actividad (Spinning).
+Un horario indica cuándo y dónde ocurre (Lunes 18:00, Sala Cardio).
+Una reserva une cliente + horario + fecha.
+
+6. VALIDACIONES
+- CI no duplicado.
+- No crear membresía si existe una vigente o pendiente.
+- Pago no puede superar saldo.
+- Membresía se activa al completar pago.
+- Reserva requiere membresía activa.
+- Reserva debe coincidir con día del horario.
+- No superar cupo.
+- No duplicar reserva.
+- Una asistencia general por cliente por día.
+- No duplicar sala en mismo día/hora.
+
+7. MODULOS PARA EXPOSICION
+Explique primero Dashboard y Clientes. Luego muestre Membresía/Pago, Agenda/Reserva y finalmente Evaluación/Rutina.
